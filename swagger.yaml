@@ -1,0 +1,172 @@
+swagger: '2.0'
+info:
+  version: '1.0'
+  title: "DataPlatform"
+  description: DataPlateforme est une API permettant aux client Affix d'associer des points d'intérêts à des emplacements publicitaires déjà existants dans la Data Platform ou en créer de nouveaux.L'idée générale est de mettre à disposition une base de données collaborative afin que les sociétés d'affichage puissent exploiter les donner et/ou alimenter la base de données.
+  license:
+    name: DataPlatform
+    url: https://dataplatform-3334d.firebaseapp.com/api/v1
+host: dataplatform-3334d.firebaseapp.com
+basePath: /api/v1
+schemes:
+- https
+consumes:
+- application/json
+produces:
+- application/json
+paths:
+  /poi:
+    x-summary: POI
+    get:
+      summary: Récupération des POI
+      responses:
+        200:
+          description: Lorqu'on fait la requête GET, on reçoit la liste et les infos des POI actifs et valide dans un tableau
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/poi'
+          examples:
+            application/json:
+              - active: true
+                valide: true
+                adresse: RUE 5874
+                codePostal: BP 8795 
+                ville: PARIS
+                pays: FRANCE
+                idSociete: 73157b50-8c2f-11e9-b5d2-d58b63a3b90a
+                id: 34ec58a0-903d-11e9-b352-5b6936110126
+                idTypePoi: 9085ef10-8c36-11e9-96e0-b1fa4e021719
+                nom: ATLANTIQUE
+                urlLogoPoi:
+                longitude: 74
+                libelleTypePoi: BANQUES
+                libelleSociete: QUADRA
+                latitude: 15
+    post:
+      description: >-
+        Lorsqu'on fait une requete POST, on enregistrer un nouveau POI en enregistrant ses informations
+      summary: Enregistrer un POI
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/poiRequest'
+      responses:
+        200:
+          description: ''
+          examples:
+            application/json:
+              'POI enrégistrée'
+  /marques:
+    x-summary: Marques
+    get:
+      summary: Récupération des marques
+      responses:
+        200:
+          description: Lorqu'on fait la requête GET, on reçoit la liste et les infos des Marques actifs et valide dans un tableau
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/poi'
+          examples:
+            application/json:
+              - active: true
+                valide: true
+                adresse: RUE 5874
+                codePostal: BP 8795 
+                ville: PARIS
+                pays: FRANCE
+                idSociete: 73157b50-8c2f-11e9-b5d2-d58b63a3b90a
+                id: 34ec58a0-903d-11e9-b352-5b6936110126
+                idTypePoi: 9085ef10-8c36-11e9-96e0-b1fa4e021719
+                nom: ATLANTIQUE
+                urlLogoPoi:
+                longitude: 74
+                libelleTypePoi: BANQUES
+                libelleSociete: QUADRA
+                latitude: 15
+    post:
+      description: >-
+        Lorsqu'on fait une requete POST, on enregistrer un nouveau POI en enregistrant ses informations
+      summary: Enregistrer un POI
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/poiRequest'
+      responses:
+        200:
+          description: ''
+          examples:
+            application/json:
+              'POI enrégistrée'              
+definitions:
+  poi:
+    title: poi
+    type: object
+    properties:
+        active:
+          type: boolean
+        valide:
+          type: boolean
+        nom:
+          type: string
+        id:
+          type: string
+        adresse:
+          type: string
+        codePostal:
+          type: string
+        ville:
+          type: string
+        pays:
+          type: string
+        idSociete:
+          type: string
+        libelleSociete:
+          type: string
+        idTypePoi:
+          type: string
+        libelleTypePoi:
+          type: string
+        urlLogoPoi:
+          type: string
+        longitude:
+          type: number
+        latitude:
+          type: number
+  poiRequest:
+    title: poiRequest
+    type: object
+    properties:
+        active:
+          type: boolean
+        valide:
+          type: boolean
+        nom:
+          type: string
+        adresse:
+          type: string
+        codePostal:
+          type: string
+        ville:
+          type: string
+        pays:
+          type: string
+        idSociete:
+          type: string
+        libelleSociete:
+          type: string
+        idTypePoi:
+          type: string
+        libelleTypePoi:
+          type: string
+        urlLogoPoi:
+          type: string
+        longitude:
+          type: number
+        latitude:
+          type: number
