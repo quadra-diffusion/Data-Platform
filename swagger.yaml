@@ -97,6 +97,39 @@ paths:
           examples:
             application/json:
               'POI enrégistrée'              
+  /type_poi:
+    x-summary: TypePOI
+    get:
+      summary: Récupération des marques
+      responses:
+        200:
+          description: Lorqu'on fait la requête GET, on reçoit la liste des Types de POI actifs et valide dans un tableau
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/type_poi'
+          examples:
+            application/json:
+              - active: true
+                valide: true
+                id: 0002bc60-8c37-11e9-a7e8-e30d36e50354
+                nom: HIGH TECH E
+    post:
+      description: >-
+        Lorsqu'on fait une requete POST, on enregistrer un nouveau Type de POI en enregistrant ses informations
+      summary: Enregistrer un Type de POI
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/poiRequest'
+      responses:
+        200:
+          description: ''
+          examples:
+            application/json:
+              'Type de poi enrégistrée'
 definitions:
   poi:
     title: poi
@@ -174,6 +207,8 @@ definitions:
           type: boolean
         nom:
           type: string
+        id:
+          type: string
         idSociete:
           type: string
         idTypeMarque:
@@ -183,4 +218,16 @@ definitions:
         libelleTypeMarque:
           type: string  
         urlLogoMarque:
+          type: string
+  type_poi:
+    title: type_poi
+    type: object
+    properties:
+        active:
+          type: boolean
+        valide:
+          type: boolean
+        nom:
+          type: string
+        id:
           type: string
