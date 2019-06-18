@@ -83,20 +83,20 @@ paths:
                 libelleSociete: SUPRA
     post:
       description: >-
-        Lorsqu'on fait une requete POST, on enregistrer un nouveau POI en enregistrant ses informations
+        Lorsqu'on fait une requete POST, on enregistrer une nouvelle marque en enregistrant ses informations
       summary: Enregistrer un POI
       parameters:
         - name: body
           in: body
           required: true
           schema:
-            $ref: '#/definitions/poiRequest'
+            $ref: '#/definitions/marquesRequest'
       responses:
         200:
           description: ''
           examples:
             application/json:
-              'POI enrégistrée'              
+              'Marque enrégistrée'              
   /type_poi:
     x-summary: TypePOI
     get:
@@ -123,7 +123,7 @@ paths:
           in: body
           required: true
           schema:
-            $ref: '#/definitions/poiRequest'
+            $ref: '#/definitions/type_poiRequest'
       responses:
         200:
           description: ''
@@ -219,6 +219,26 @@ definitions:
           type: string  
         urlLogoMarque:
           type: string
+  marquesRequest:
+    title: marques
+    type: object
+    properties:
+        active:
+          type: boolean
+        valide:
+          type: boolean
+        nom:
+          type: string
+        idSociete:
+          type: string
+        idTypeMarque:
+          type: string
+        libelleSociete:
+          type: string
+        libelleTypeMarque:
+          type: string  
+        urlLogoMarque:
+          type: string    
   type_poi:
     title: type_poi
     type: object
@@ -230,4 +250,14 @@ definitions:
         nom:
           type: string
         id:
+          type: string
+  type_poiRequest:
+    title: type_poi
+    type: object
+    properties:
+        active:
+          type: boolean
+        valide:
+          type: boolean
+        nom:
           type: string
