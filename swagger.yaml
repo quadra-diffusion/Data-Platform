@@ -100,7 +100,7 @@ paths:
   /type_poi:
     x-summary: TypePOI
     get:
-      summary: Récupération des marques
+      summary: Récupération des Type de POI
       responses:
         200:
           description: Lorqu'on fait la requête GET, on reçoit la liste des Types de POI actifs et valide dans un tableau
@@ -130,6 +130,39 @@ paths:
           examples:
             application/json:
               'Type de poi enrégistrée'
+  /type_marques:
+    x-summary: TypeMarques
+    get:
+      summary: Récupération des Type de Marques
+      responses:
+        200:
+          description: Lorqu'on fait la requête GET, on reçoit la liste des Types de Marques actifs et valide dans un tableau
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/type_marques'
+          examples:
+            application/json:
+              - active: true
+                valide: true
+                id: 53166510-8c36-11e9-8c2c-977a3d3d1953
+                nom: BANQUES
+    post:
+      description: >-
+        Lorsqu'on fait une requete POST, on enregistrer un nouveau Type de Marques en enregistrant ses informations
+      summary: Enregistrer un Type de Marques
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/type_marquesRequest'
+      responses:
+        200:
+          description: ''
+          examples:
+            application/json:
+              'Type de poi enrégistrée'  
 definitions:
   poi:
     title: poi
@@ -253,6 +286,28 @@ definitions:
           type: string
   type_poiRequest:
     title: type_poi
+    type: object
+    properties:
+        active:
+          type: boolean
+        valide:
+          type: boolean
+        nom:
+          type: string
+  type_marques:
+    title: type_marques
+    type: object
+    properties:
+        active:
+          type: boolean
+        valide:
+          type: boolean
+        nom:
+          type: string
+        id:
+          type: string          
+  type_marquesRequest:
+    title: type_marquesRequest
     type: object
     properties:
         active:
