@@ -69,24 +69,18 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/definitions/poi'
+              $ref: '#/definitions/marques'
           examples:
             application/json:
               - active: true
                 valide: true
-                adresse: RUE 5874
-                codePostal: BP 8795 
-                ville: PARIS
-                pays: FRANCE
-                idSociete: 73157b50-8c2f-11e9-b5d2-d58b63a3b90a
-                id: 34ec58a0-903d-11e9-b352-5b6936110126
-                idTypePoi: 9085ef10-8c36-11e9-96e0-b1fa4e021719
-                nom: ATLANTIQUE
-                urlLogoPoi:
-                longitude: 74
-                libelleTypePoi: BANQUES
-                libelleSociete: QUADRA
-                latitude: 15
+                idSociete: 750073a0-8f6a-11e9-b112-b5325e9c8a36
+                id: 4e2f2840-9044-11e9-8967-3508f29dfba6
+                idTypeMarque: 836bdbb0-8c35-11e9-beea-996d0077bd8d
+                nom: APLE
+                urlLogoMarque:
+                libelleTypeMarque: HIGH TECH
+                libelleSociete: SUPRA
     post:
       description: >-
         Lorsqu'on fait une requete POST, on enregistrer un nouveau POI en enregistrant ses informations
@@ -170,3 +164,23 @@ definitions:
           type: number
         latitude:
           type: number
+  marques:
+    title: marques
+    type: object
+    properties:
+        active:
+          type: boolean
+        valide:
+          type: boolean
+        nom:
+          type: string
+        idSociete:
+          type: string
+        idTypeMarque:
+          type: string
+        libelleSociete:
+          type: string
+        libelleTypeMarque:
+          type: string  
+        urlLogoMarque:
+          type: string
