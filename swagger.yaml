@@ -84,7 +84,7 @@ paths:
     post:
       description: >-
         Lorsqu'on fait une requete POST, on enregistrer une nouvelle marque en enregistrant ses informations
-      summary: Enregistrer un POI
+      summary: Enregistrer une Marque
       parameters:
         - name: body
           in: body
