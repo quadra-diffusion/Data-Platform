@@ -45,7 +45,7 @@ paths:
                 latitude: 15
     post:
       description: >-
-        Lorsqu'on fait une requete POST, on enregistrer un nouveau POI en enregistrant ses informations
+        Lorsqu'on fait une requete POST, on enregistrer un nouveau POI en enregistrant ses informations.  ( NB: L' url des images de logo doit être une DataURL en base 64 )
       summary: Enregistrer un POI
       parameters:
         - name: body
@@ -83,7 +83,7 @@ paths:
                 libelleSociete: SUPRA
     post:
       description: >-
-        Lorsqu'on fait une requete POST, on enregistrer une nouvelle marque en enregistrant ses informations
+        Lorsqu'on fait une requete POST, on enregistrer une nouvelle marque en enregistrant ses informations. ( NB: L' url des images de logo doit être une DataURL en base 64 )
       summary: Enregistrer une Marque
       parameters:
         - name: body
@@ -218,11 +218,7 @@ definitions:
           type: string
         idSociete:
           type: string
-        libelleSociete:
-          type: string
         idTypePoi:
-          type: string
-        libelleTypePoi:
           type: string
         urlLogoPoi:
           type: string
@@ -265,10 +261,6 @@ definitions:
         idSociete:
           type: string
         idTypeMarque:
-          type: string
-        libelleSociete:
-          type: string
-        libelleTypeMarque:
           type: string  
         urlLogoMarque:
           type: string    
