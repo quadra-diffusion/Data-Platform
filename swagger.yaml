@@ -162,7 +162,39 @@ paths:
           description: ''
           examples:
             application/json:
-              'Type de poi enrégistrée'  
+              'Type de marque enrégistrée'
+  /getMairies:
+    x-summary: Mairies
+    put:
+      summary: Récupération des mairies
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/getMairiesRequest'
+      responses:
+        200:
+          description: Lorqu'on fait la requête PUT, on récupére des informations sur une mairie. (NB) Les six possibilités de recherche avec les paramètres(codeInsee, codePostal, commune) sont inclues.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/getMairies'
+          examples:
+            application/json:
+              - active: false
+                adresse: 1 place d'Armes
+                codePostal: 31370
+                codeInsee: 31454
+                id: 5bb7d500-9c03-11e9-9c2c-b5729ac1735d
+                latitude: 43.4124984741
+                libelleSociete: QUADRA DIFFUSION
+                libelleTypePoi: MAIRIE
+                longitude: 1.11960995197
+                nom: Mairie de Rieumes
+                pays: FRANCE
+                valide: false
+                ville: Rieumes
 definitions:
   poi:
     title: poi
@@ -198,6 +230,52 @@ definitions:
           type: number
         latitude:
           type: number
+  getMairies:
+    title: getMairies
+    type: object
+    properties:
+        active:
+          type: boolean
+        valide:
+          type: boolean
+        nom:
+          type: string
+        id:
+          type: string
+        adresse:
+          type: string
+        codePostal:
+          type: string
+        ville:
+          type: string
+        pays:
+          type: string
+        idSociete:
+          type: string
+        libelleSociete:
+          type: string
+        idTypePoi:
+          type: string
+        libelleTypePoi:
+          type: string
+        urlLogoPoi:
+          type: string
+        longitude:
+          type: number
+        latitude:
+          type: number
+        codeInsee:
+          type: number          
+  getMairiesRequest:
+    title: getMairiesRequest
+    type: object
+    properties:
+        codePostal:
+          type: string
+        codeInsee:
+          type: number
+        commune:
+          type: string                    
   poiRequest:
     title: poiRequest
     type: object
