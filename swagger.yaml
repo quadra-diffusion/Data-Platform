@@ -164,7 +164,7 @@ paths:
             application/json:
               'Type de marque enrégistrée'
   /getMairies:
-    x-summary: Mairies
+    x-summary: Recherche Mairies
     put:
       summary: Récupération des mairies
       parameters:
@@ -195,6 +195,34 @@ paths:
                 pays: FRANCE
                 valide: false
                 ville: Rieumes
+  /getMarques:
+    x-summary: Recherche Marques
+    put:
+      summary: Récupération des marques
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/getMarquesRequest'
+      responses:
+        200:
+          description: Lorqu'on fait la requête PUT, on récupére des informations sur une mairie. (NB) Les six possibilités de recherche avec les paramètres(codeInsee, codePostal, commune) sont inclues.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/getMarques'
+          examples:
+            application/json:
+              - active: true
+                valide: true
+                idSociete: 750073a0-8f6a-11e9-b112-b5325e9c8a36
+                id: 4e2f2840-9044-11e9-8967-3508f29dfba6
+                idTypeMarque: 836bdbb0-8c35-11e9-beea-996d0077bd8d
+                nom: APLE
+                urlLogoMarque:
+                libelleTypeMarque: HIGH TECH
+                libelleSociete: SUPRA
 definitions:
   poi:
     title: poi
@@ -230,52 +258,6 @@ definitions:
           type: number
         latitude:
           type: number
-  getMairies:
-    title: getMairies
-    type: object
-    properties:
-        active:
-          type: boolean
-        valide:
-          type: boolean
-        nom:
-          type: string
-        id:
-          type: string
-        adresse:
-          type: string
-        codePostal:
-          type: string
-        ville:
-          type: string
-        pays:
-          type: string
-        idSociete:
-          type: string
-        libelleSociete:
-          type: string
-        idTypePoi:
-          type: string
-        libelleTypePoi:
-          type: string
-        urlLogoPoi:
-          type: string
-        longitude:
-          type: number
-        latitude:
-          type: number
-        codeInsee:
-          type: number          
-  getMairiesRequest:
-    title: getMairiesRequest
-    type: object
-    properties:
-        codePostal:
-          type: string
-        codeInsee:
-          type: number
-        commune:
-          type: string                    
   poiRequest:
     title: poiRequest
     type: object
@@ -384,5 +366,81 @@ definitions:
           type: boolean
         valide:
           type: boolean
+        nom:
+          type: string
+  getMairies:
+    title: getMairies
+    type: object
+    properties:
+        active:
+          type: boolean
+        valide:
+          type: boolean
+        nom:
+          type: string
+        id:
+          type: string
+        adresse:
+          type: string
+        codePostal:
+          type: string
+        ville:
+          type: string
+        pays:
+          type: string
+        idSociete:
+          type: string
+        libelleSociete:
+          type: string
+        idTypePoi:
+          type: string
+        libelleTypePoi:
+          type: string
+        urlLogoPoi:
+          type: string
+        longitude:
+          type: number
+        latitude:
+          type: number
+        codeInsee:
+          type: number          
+  getMairiesRequest:
+    title: getMairiesRequest
+    type: object
+    properties:
+        codePostal:
+          type: string
+        codeInsee:
+          type: number
+        commune:
+          type: string                    
+  getMarques:
+    title: getMarques
+    type: object
+    properties:
+        active:
+          type: boolean
+        valide:
+          type: boolean
+        nom:
+          type: string
+        id:
+          type: string
+        idSociete:
+          type: string
+        idTypeMarque:
+          type: string
+        libelleSociete:
+          type: string
+        libelleTypeMarque:
+          type: string  
+        urlLogoMarque:
+          type: string         
+  getMarquesRequest:
+    title: getMarquesRequest
+    type: object
+    properties:
+        idMarque:
+          type: string
         nom:
           type: string
