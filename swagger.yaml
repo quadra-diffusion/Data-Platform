@@ -207,7 +207,7 @@ paths:
             $ref: '#/definitions/getMarquesRequest'
       responses:
         200:
-          description: Lorqu'on fait la requête PUT, on récupére des informations sur une mairie. (NB) Les six possibilités de recherche avec les paramètres(codeInsee, codePostal, commune) sont inclues.
+          description: On récupére des informations sur une ou plusieurs marque(s). (NB) Les trois possibilités de recherche avec les paramètres(idMarque, nom) sont inclues.
           schema:
             type: array
             items:
@@ -223,6 +223,27 @@ paths:
                 urlLogoMarque:
                 libelleTypeMarque: HIGH TECH
                 libelleSociete: SUPRA
+  /getCodeInsee:
+    x-summary: Recherche Code Insee
+    put:
+      summary: Récupération d'un ou de plusieurs Code Insee
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/getCodeInseeRequest'
+      responses:
+        200:
+          description: On récupére les code Insee en fonction des parametres envoyes via la request.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/getCodeInsee'
+          examples:
+            application/json:
+              - nomCommune: L'Abergement-Clémenciat
+                codeInsee: 1001
 definitions:
   poi:
     title: poi
@@ -444,3 +465,37 @@ definitions:
           type: string
         nom:
           type: string
+  getCodeInsee:
+    title: getMarques
+    type: object
+    properties:
+      nomCommune:
+        type: string
+      codeInsee:
+        type: number        
+  getCodeInseeRequest:
+    title: getMarquesRequest
+    type: object
+    properties:
+      typecom:
+        type: string
+      com:
+        type: number
+      reg:
+        type: number
+      dep:
+        type: number
+      arr:
+        type: number
+      tncc:
+        type: number
+      ncc:
+        type: string
+      nccenr:
+        type: string
+      libelle:
+        type: string
+      can:
+        type: number
+      comparent:
+        type: number
