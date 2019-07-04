@@ -244,6 +244,29 @@ paths:
             application/json:
               - nomCommune: L'Abergement-Clémenciat
                 codeInsee: 1001
+  /getTypeMarques:
+    x-summary: Recherche Type de Marques
+    put:
+      summary: Récupération des types de marques
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/getTypeMarquesRequest'
+      responses:
+        200:
+          description: On récupére des informations sur un ou plusieurs type marque(s). (NB) Les trois possibilités de recherche avec les paramètres(id, nom) sont inclues.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/getTypeMarques'
+          examples:
+            application/json:
+              - active: true
+                valide: true
+                id: 3071fc90-8c36-11e9-a43e-85a5f398e44f
+                nom: BIJOUTERIE
 definitions:
   poi:
     title: poi
@@ -499,3 +522,23 @@ definitions:
         type: number
       comparent:
         type: number
+  getTypeMarques:
+    title: getMarques
+    type: object
+    properties:
+        active:
+          type: boolean
+        valide:
+          type: boolean
+        nom:
+          type: string
+        id:
+          type: string        
+  getTypeMarquesRequest:
+    title: getMarquesRequest
+    type: object
+    properties:
+        id:
+          type: string
+        nom:
+          type: string
