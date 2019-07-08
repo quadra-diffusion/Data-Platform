@@ -267,6 +267,28 @@ paths:
                 valide: true
                 id: 3071fc90-8c36-11e9-a43e-85a5f398e44f
                 nom: BIJOUTERIE
+  /getCodePostal:
+    x-summary: Recherche Code Postal
+    put:
+      summary: Récupération d'un ou de plusieurs Code Postaux d'une commune
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/getCodePostalRequest'
+      responses:
+        200:
+          description: On récupére les code Postaux en fonction des parametres envoyes via la request.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/getCodePostal'
+          examples:
+            application/json:
+              - nomCommune: La Rochette-du-Buis
+                codeInsee: 26279
+                codePostal: 26170
 definitions:
   poi:
     title: poi
@@ -489,7 +511,7 @@ definitions:
         nom:
           type: string
   getCodeInsee:
-    title: getMarques
+    title: getCodeInsee
     type: object
     properties:
       nomCommune:
@@ -497,7 +519,7 @@ definitions:
       codeInsee:
         type: number        
   getCodeInseeRequest:
-    title: getMarquesRequest
+    title: getCodeInseeRequest
     type: object
     properties:
       typecom:
@@ -542,3 +564,39 @@ definitions:
           type: string
         nom:
           type: string
+  getCodePostal:
+    title: getCodePostal
+    type: object
+    properties:
+      nomCommune:
+        type: string
+      codeInsee:
+        type: number
+      codePostal:
+        type: number     
+  getCodePostalRequest:
+    title: getCodePostalRequest
+    type: object
+    properties:
+      typecom:
+        type: string
+      com:
+        type: number
+      reg:
+        type: number
+      dep:
+        type: number
+      arr:
+        type: number
+      tncc:
+        type: number
+      ncc:
+        type: string
+      nccenr:
+        type: string
+      libelle:
+        type: string
+      can:
+        type: number
+      comparent:
+        type: number
