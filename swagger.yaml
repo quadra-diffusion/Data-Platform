@@ -20,7 +20,7 @@ securityDefinitions:
     name: Authorization Token
     in: header
 security:
-  - ApiKeyAuth: []
+  - ApiKeyAuth: [73157b50-8c2f-11e9-b5d2-d58b63a3b90a]
 paths:
   /poi:
     x-summary: POI
@@ -204,14 +204,19 @@ paths:
                 ville: Rieumes
   /getMarques:
     x-summary: Recherche Marques
-    put:
+    get:
       summary: Récupération des marques
       parameters:
-        - name: body
-          in: body
-          required: true
-          schema:
-            $ref: '#/definitions/getMarquesRequest'
+        - name: nom
+          in: query
+          description: paramettre nom de recherche
+          type: string
+          x-example: 'e'
+        - name: idMarque
+          in: query
+          description: l'id complet de la marque
+          type: string
+          x-example: '4e2f2840-9044-11e9-8967-3508f29dfba6'
       responses:
         200:
           description: On récupére des informations sur une ou plusieurs marque(s). (NB) Les trois possibilités de recherche avec les paramètres(idMarque, nom) sont inclues.
@@ -253,14 +258,19 @@ paths:
                 codeInsee: 1001
   /getTypeMarques:
     x-summary: Recherche Type de Marques
-    put:
+    get:
       summary: Récupération des types de marques
       parameters:
-        - name: body
-          in: body
-          required: true
-          schema:
-            $ref: '#/definitions/getTypeMarquesRequest'
+        - name: nom
+          in: query
+          description: paramettre nom de recherche
+          type: string
+          x-example: 'e'
+        - name: id
+          in: query
+          description: l'id complet du type de marque
+          type: string
+          x-example: ''
       responses:
         200:
           description: On récupére des informations sur un ou plusieurs type marque(s). (NB) Les trois possibilités de recherche avec les paramètres(id, nom) sont inclues.
@@ -509,14 +519,6 @@ definitions:
           type: string  
         urlLogoMarque:
           type: string         
-  getMarquesRequest:
-    title: getMarquesRequest
-    type: object
-    properties:
-        idMarque:
-          type: string
-        nom:
-          type: string
   getCodeInsee:
     title: getCodeInsee
     type: object
