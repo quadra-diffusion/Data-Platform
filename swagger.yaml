@@ -247,14 +247,42 @@ paths:
                 libelleSociete: SUPRA
   /getCodeInsee:
     x-summary: Recherche Code Insee
-    put:
+    get:
       summary: Récupération d'un ou de plusieurs Code Insee
       parameters:
-        - name: body
-          in: body
-          required: true
-          schema:
-            $ref: '#/definitions/getCodeInseeRequest'
+        - name: typecom
+          in: query
+          type: string
+        - name: com
+          in: query
+          type: string
+        - name: reg
+          in: query
+          type: string
+        - name: dep
+          in: query
+          type: string
+        - name: arr
+          in: query
+          type: string
+        - name: tncc
+          in: query
+          type: string
+        - name: ncc
+          in: query
+          type: string
+        - name: nccenr
+          in: query
+          type: string
+        - name: libelle
+          in: query
+          type: string
+        - name: can
+          in: query
+          type: string
+        - name: comparent
+          in: query
+          type: string
       responses:
         200:
           description: On récupére les code Insee en fonction des parametres envoyes via la request.
@@ -527,32 +555,6 @@ definitions:
         type: string
       codeInsee:
         type: number        
-  getCodeInseeRequest:
-    title: getCodeInseeRequest
-    type: object
-    properties:
-      typecom:
-        type: string
-      com:
-        type: number
-      reg:
-        type: number
-      dep:
-        type: number
-      arr:
-        type: number
-      tncc:
-        type: number
-      ncc:
-        type: string
-      nccenr:
-        type: string
-      libelle:
-        type: string
-      can:
-        type: number
-      comparent:
-        type: number
   getTypeMarques:
     title: getMarques
     type: object
