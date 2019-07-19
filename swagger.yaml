@@ -327,11 +327,39 @@ paths:
     put:
       summary: Récupération d'un ou de plusieurs Code Postaux d'une commune
       parameters:
-        - name: body
-          in: body
-          required: true
-          schema:
-            $ref: '#/definitions/getCodePostalRequest'
+        - name: typecom
+          in: query
+          type: string
+        - name: com
+          in: query
+          type: string
+        - name: reg
+          in: query
+          type: string
+        - name: dep
+          in: query
+          type: string
+        - name: arr
+          in: query
+          type: string
+        - name: tncc
+          in: query
+          type: string
+        - name: ncc
+          in: query
+          type: string
+        - name: nccenr
+          in: query
+          type: string
+        - name: libelle
+          in: query
+          type: string
+        - name: can
+          in: query
+          type: string
+        - name: comparent
+          in: query
+          type: string
       responses:
         200:
           description: On récupére les code Postaux en fonction des parametres envoyes via la request.
@@ -576,30 +604,4 @@ definitions:
       codeInsee:
         type: number
       codePostal:
-        type: number     
-  getCodePostalRequest:
-    title: getCodePostalRequest
-    type: object
-    properties:
-      typecom:
-        type: string
-      com:
-        type: number
-      reg:
-        type: number
-      dep:
-        type: number
-      arr:
-        type: number
-      tncc:
-        type: number
-      ncc:
-        type: string
-      nccenr:
-        type: string
-      libelle:
-        type: string
-      can:
-        type: number
-      comparent:
         type: number
