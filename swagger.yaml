@@ -172,17 +172,27 @@ paths:
               'Type de marque enrégistrée'
   /getMairies:
     x-summary: Recherche Mairies
-    put:
+    get:
       summary: Récupération des mairies
       parameters:
-        - name: body
-          in: body
-          required: true
-          schema:
-            $ref: '#/definitions/getMairiesRequest'
+        - name: codePostal
+          in: query
+          description: code postal de la mairie
+          type: string
+          x-example: '31370'
+        - name: codeInsee
+          in: query
+          description: code insee de la mairie (5 caracteres obligatoire)
+          type: number
+          x-example: 31454
+        - name: commune
+          in: query
+          description: parametre de recherche au niveau du nom de la mairie
+          type: string
+          x-example: 'Rieumes'
       responses:
         200:
-          description: Lorqu'on fait la requête PUT, on récupére des informations sur une mairie. (NB) Les six possibilités de recherche avec les paramètres(codeInsee, codePostal, commune) sont inclues.
+          description: Lorqu'on fait la requête GET, on récupére des informations sur une mairie. (NB) Les six possibilités de recherche avec les paramètres(codeInsee, codePostal, commune) sont inclues.
           schema:
             type: array
             items:
@@ -487,16 +497,6 @@ definitions:
           type: number
         codeInsee:
           type: number          
-  getMairiesRequest:
-    title: getMairiesRequest
-    type: object
-    properties:
-        codePostal:
-          type: string
-        codeInsee:
-          type: number
-        commune:
-          type: string                    
   getMarques:
     title: getMarques
     type: object
@@ -565,14 +565,6 @@ definitions:
           type: string
         id:
           type: string        
-  getTypeMarquesRequest:
-    title: getMarquesRequest
-    type: object
-    properties:
-        id:
-          type: string
-        nom:
-          type: string
   getCodePostal:
     title: getCodePostal
     type: object
