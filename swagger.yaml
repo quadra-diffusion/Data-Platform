@@ -119,8 +119,10 @@ paths:
             application/json:
               - active: true
                 valide: true
-                id: 0002bc60-8c37-11e9-a7e8-e30d36e50354
-                nom: HIGH TECH E
+                id: 08d9fd30-ad7a-11e9-8fef-5bc1c240697e
+                idImage: 07fa4b90-ad7a-11e9-8fef-5bc1c240697e
+                urlImage: https://firebasestorage.googleapis.com/v0/b/dataplatform-3334d.appspot.com/o/imageTypePoi%2F07fa4b90-ad7a-11e9-8fef-5bc1c240697e.jpg?alt=media&token=b67a67d2-262c-47e6-bdee-794564f1da33
+                nom: BEAUTE / PARFUMERIE
     post:
       description: >-
         Lorsqu'on fait une requete POST, on enregistrer un nouveau Type de POI en enregistrant ses informations
@@ -152,8 +154,10 @@ paths:
             application/json:
               - active: true
                 valide: true
-                id: 53166510-8c36-11e9-8c2c-977a3d3d1953
+                id: 0eebc340-ad7d-11e9-8fef-5bc1c240697e
                 nom: BANQUES
+                idImage: 0e5f3ab0-ad7d-11e9-8fef-5bc1c240697e
+                urlImage: https://firebasestorage.googleapis.com/v0/b/dataplatform-3334d.appspot.com/o/imageTypeMarque%2F0e5f3ab0-ad7d-11e9-8fef-5bc1c240697e.jpg?alt=media&token=f01be513-f0e4-4b8f-89da-dd43ec1361cb
     post:
       description: >-
         Lorsqu'on fait une requete POST, on enregistrer un nouveau Type de Marques en enregistrant ses informations
@@ -485,6 +489,10 @@ definitions:
           type: string
         id:
           type: string
+        urlImage:
+          type: string
+        idImage:
+          type: string
   type_poiRequest:
     title: type_poi
     type: object
@@ -506,7 +514,11 @@ definitions:
         nom:
           type: string
         id:
-          type: string          
+          type: string
+        urlImage:
+          type: string
+        idImage:
+          type: string        
   type_marquesRequest:
     title: type_marquesRequest
     type: object
