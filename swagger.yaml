@@ -324,8 +324,10 @@ paths:
             application/json:
               - active: true
                 valide: true
-                id: 3071fc90-8c36-11e9-a43e-85a5f398e44f
-                nom: BIJOUTERIE
+                id: 0eebc340-ad7d-11e9-8fef-5bc1c240697e
+                nom: BANQUES
+                idImage: 0e5f3ab0-ad7d-11e9-8fef-5bc1c240697e
+                urlImage: https://firebasestorage.googleapis.com/v0/b/dataplatform-3334d.appspot.com/o/imageTypeMarque%2F0e5f3ab0-ad7d-11e9-8fef-5bc1c240697e.jpg?alt=media&token=f01be513-f0e4-4b8f-89da-dd43ec1361cb
   /getCodePostal:
     x-summary: Recherche Code Postal
     put:
@@ -606,7 +608,11 @@ definitions:
         nom:
           type: string
         id:
-          type: string        
+          type: string
+        idImage:
+          type: string
+        urlImagec:
+          type: string       
   getCodePostal:
     title: getCodePostal
     type: object
