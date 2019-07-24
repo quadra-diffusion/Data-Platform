@@ -611,7 +611,7 @@ definitions:
           type: string
         idImage:
           type: string
-        urlImagec:
+        urlImage:
           type: string       
   getCodePostal:
     title: getCodePostal
