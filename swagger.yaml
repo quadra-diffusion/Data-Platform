@@ -378,6 +378,24 @@ paths:
               - nomCommune: La Rochette-du-Buis
                 codeInsee: 26279
                 codePostal: 26170
+  /typePieces:
+    x-summary: Invimmo - Type de Pieces
+    post:
+      description: >-
+        Enregistrement un nouveau Type de Pieces
+      summary: Enregistrer un Type de Pieces
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/type_pieces'
+      responses:
+        200:
+          description: ''
+          examples:
+            application/json:
+              'Type de piece enrégistrée'
 definitions:
   poi:
     title: poi
@@ -613,6 +631,22 @@ definitions:
           type: string
         urlImage:
           type: string       
+  type_pieces:
+    title: type_pieces
+    type: object
+    properties:
+        active:
+          type: boolean
+        valide:
+          type: boolean
+        code:
+          type: string
+        libelle:
+          type: string
+        interieur:
+          type: boolean
+        ordre:
+          type: string
   getCodePostal:
     title: getCodePostal
     type: object
