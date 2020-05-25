@@ -378,7 +378,7 @@ paths:
               - nomCommune: La Rochette-du-Buis
                 codeInsee: 26279
                 codePostal: 26170
-  /get:
+  /type_pieces:
     x-summary: Invimmo - Type de Pieces
     post:
       description: >-
